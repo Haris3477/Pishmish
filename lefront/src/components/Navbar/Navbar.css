@@ -1,0 +1,248 @@
+/* General Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: white;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.navbar-logo a {
+  font-family: "Oxanium", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  position: relative;
+}
+
+.navbar-links > li {
+  position: relative;
+}
+
+.navbar-links > li a {
+  text-decoration: none;
+  color: #555;
+  font-size: 1rem;
+  transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+.navbar-links > li a:hover {
+  color: #000;
+  font-weight: bold;
+}
+
+/* Dropdown Genel Yapısı */
+.dropdown-menu {
+  position: fixed; /* Her zaman ekranın sabit bir yerinde açılır */
+  top: 6%; /* Ekranın üst kısmından %6 boşluk bırak */
+  left: 45%; /* Ekranın sol kenarından %50 boşluk bırak */
+  transform: translateX(-50%); /* Ortalamak için translateX kullanılır */
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  z-index: 1000;
+  width: 800px; /* Dropdown menü genişliği */
+  display: flex;
+  flex-wrap: wrap; /* İçerikleri sarar */
+  gap: 1rem;
+}
+
+.navbar-links > li:hover .dropdown-menu {
+  display: flex;
+}
+
+/* Category Grid */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.category-item {
+  padding: 0.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.category-item:hover {
+  background-color: #f5f5f5;
+}
+
+.category-item p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.category-item img {
+  width: 65%;
+  height: 65%;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+}
+
+.category-item:hover p {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.category-item:hover {
+  transform: scale(1.02); /* Smaller scale for hover effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Smaller box-shadow for hover effect */
+}
+
+.category-image-container {
+  width: 100%;
+  height: 170px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+}
+
+.category-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.category-item:hover .category-image-container img {
+  transform: scale(1.05);
+}
+
+/* Navbar Icons */
+.navbar-icons {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navbar-icons > a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.navbar-search {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0.3rem 0.6rem;
+}
+
+.navbar-search input {
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+}
+
+.navbar-search button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar-user,
+.navbar-cart,
+.navbar-wishlist {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-wishlist {
+  position: relative;
+}
+
+.navbar-user {
+  position: relative;
+}
+
+.navbar-cart {
+  position: relative;
+}
+
+.navbar-user:hover,
+.navbar-cart:hover,
+.navbar-wishlist:hover {
+  color: #007bff;
+}
+
+/* Dropdown for Login/Sign-Up */
+.user-dropdown {
+  position: absolute;
+  top: calc(100% - 3px); /* Adjust to overlap with padding */
+  right: 50%;
+  transform: translateX(50%);
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  min-width: 160px;
+  padding: 8px 0;
+  pointer-events: auto; /* Ensure dropdown is clickable */
+}
+
+/* Create invisible bridge between icon and dropdown */
+.navbar-user::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  left: 0;
+}
+
+.user-dropdown button {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  border: none;
+  background: none;
+  text-align: center;
+  cursor: pointer;
+  color: #333;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.user-dropdown button:hover {
+  background-color: #f5f5f5;
+}
+
+.user-dropdown button:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #ff4d4d;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}

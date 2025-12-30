@@ -1,0 +1,279 @@
+.refund-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.refund-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.refund-amount {
+  margin: 10px 0;
+  padding: 8px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.refund-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.refund-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.refund-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.refund-header select {
+  padding: 10px 15px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  color: #333;
+  appearance: none; /* Tarayıcı varsayılan ok simgesini gizler */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><path d="M70 105L10 35h120L70 105z" fill="%23ccc"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.refund-header select:hover {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.refund-header select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+.refund-header h3 {
+  font-size: 12px; /* Yazı boyutunu küçültüyoruz */
+  font-weight: bold; /* Kalınlığı koruyoruz */
+  margin: 0; /* Fazla boşlukları kaldırıyoruz */
+  color: #333; /* Yazı rengi */
+}
+
+.status-filter {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  margin: 20px 0;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.status-filter input {
+  margin-right: 5px;
+}
+
+.status-filter label {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  font-size: 14px;
+  color: #495057;
+  cursor: pointer;
+  user-select: none;
+}
+
+.status-filter input[type="checkbox"] {
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #bc600f;
+}
+
+.status-filter label:hover {
+  color: #bc600f;
+}
+
+.accordion-header {
+  padding: 10px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  width: 100%;
+  text-align: left;
+}
+
+.accordion-body {
+  display: flex; /* This will make the cards appear horizontally */
+  flex-wrap: wrap; /* Ensures that cards wrap to the next line if needed */
+  margin-top: 20px; /* Adjust this value to move the cards slightly lower */
+  gap: 20px; /* Space between cards */
+}
+
+.refund-status-log {
+  margin-top: 10px;
+  padding: 8px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  font-size: 0.9em;
+  width: 100%;
+  padding: 12px;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.refund-status-log p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #495057;
+}
+
+/* Add new styles for refund actions */
+.refund-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 15px;
+  border-top: 1px solid #eee;
+}
+
+.refund-actions button {
+  width: 100%;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.refund-actions button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Authorize Payment button */
+.refund-actions button:first-child {
+  background-color: #bc600f;
+  color: white;
+}
+
+.refund-actions button:first-child:hover {
+  background-color: #a85200;
+}
+
+/* Do Refund button */
+.refund-actions button:nth-child(2) {
+  background-color: #28a745;
+  color: white;
+}
+
+.refund-actions button:nth-child(2):hover {
+  background-color: #218838;
+}
+
+/* Add styles for reject button */
+.reject-button {
+  background-color: #dc3545 !important;
+  color: white !important;
+}
+
+.reject-button:hover {
+  background-color: #c82333 !important;
+}
+
+/* Completed refund status styling */
+.refund-status {
+  margin-top: 15px;
+  padding: 12px;
+  background-color: #e8f5e9;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.refund-status p {
+  margin: 5px 0;
+  color: #2e7d32;
+  font-weight: 500;
+}
+
+.status-badge {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status-badge.complete {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #81c784;
+}
+
+/* Add styles for rejected status */
+.status-badge.rejected {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ef5350;
+}
+
+/* Add these status badge styles */
+.status-badge.pending {
+  background-color: #fff3e0;
+  color: #e65100;
+  border: 1px solid #ffb74d;
+}
+
+.status-badge.approved {
+  background-color: #e3f2fd;
+  color: #1565c0;
+  border: 1px solid #64b5f6;
+}
+
+.status-badge.productReceived {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+  border: 1px solid #ba68c8;
+}
+
+/* Add styles for refund cost */
+.refund-cost {
+  margin-top: 15px;
+  padding: 12px;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  text-align: center;
+  border: 1px solid #e9ecef;
+}
+
+.refund-cost p {
+  margin: 0;
+  color: #28a745;
+  font-size: 16px;
+  font-weight: 500;
+}

@@ -1,0 +1,84 @@
+/* components/ReviewApproval/ReviewApproval.css */
+
+.review-approval {
+  padding: 0.3rem;
+}
+
+.review-approval h2 {
+  font-size: 1.8rem;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.review-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.review-item {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.review-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.review-details {
+  flex: 1;
+}
+
+.review-details p {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.review-details p strong {
+  color: #333;
+  margin-right: 0.5rem;
+}
+
+.review-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.approve-button,
+.reject-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.approve-button {
+  background-color: #48bb78;
+  color: white;
+}
+
+.approve-button:hover {
+  background-color: #38a169;
+}
+
+.reject-button {
+  background-color: #f56565;
+  color: white;
+}
+
+.reject-button:hover {
+  background-color: #e53e3e;
+}

@@ -1,0 +1,320 @@
+/* CartSidebar.css */
+
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100%;
+  background-color: #fdfdfd;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+  padding: 2rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevents internal scrolling */
+}
+
+.cart-sidebar.open {
+  transform: translateX(0);
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #333;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.cart-sidebar h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.cart-items {
+  margin-top: 2rem;
+  flex-grow: 1; /* Allows cart items to take available space */
+  overflow-y: auto; /* Enables scrolling within cart items if necessary */
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+  position: relative; /* To position the delete button */
+  padding-right: 40px; /* Ensure space for the delete button */
+}
+
+.cart-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* Add new image container class */
+.cart-item-image {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.cart-item-info {
+  flex-grow: 1;
+}
+
+.cart-item h3 {
+  font-size: 1rem;
+  margin: 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.cart-item p {
+  margin: 0.3rem 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.cart-total {
+  margin-top: 1.5rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #333;
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.pay-now-button {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 0cap;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pay-now-button:hover {
+  background-color: #36873a;
+}
+
+.cart-item-controls {
+  display: flex; /* Use Flexbox */
+  align-items: center; /* Vertically align items */
+  justify-content: space-between; /* Space between quantity controls and delete button */
+  margin-top: 5px;
+  width: 100%; /* Ensure it spans the full width */
+}
+
+/* Quantity Controls Group */
+.cart-item-controls .quantity-controls {
+  display: flex; /* Flex layout for buttons and quantity */
+  gap: 10px; /* Space between buttons */
+}
+
+/* Delete Button Styles */
+.cart-item-controls .delete-button {
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-color: black;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.cart-item-controls .delete-button svg {
+  color: black; /* Ensure white trash icon */
+  width: 16px;
+  height: 16px;
+  transition: color 0.3s;
+}
+
+.cart-item-controls .delete-button:hover {
+  transform: translateY(-1px);
+  background-color: white;
+}
+
+.cart-item-controls .delete-button svg:hover {
+  color: red; /* Darker red on hover */
+}
+
+.cart-item-controls .quantity-button {
+  width: 25px; /* Fixed width */
+  height: 25px; /* Fixed height to make it a circle */
+  display: flex; /* Use Flexbox for centering */
+  align-items: center; /* Vertical centering */
+  justify-content: center; /* Horizontal centering */
+  font-size: 15px; /* Adjust font size for better fit */
+  font-weight: bold;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 2px; /* Rounded shape */
+  cursor: pointer;
+  padding: 0; /* Remove padding to maintain shape */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth hover effects */
+}
+
+.cart-item-controls .quantity-button:hover {
+  transform: translateY(-1px);
+}
+
+/* Add to CartSidebar.css */
+.quantity-button.disabled {
+  background-color: #cccccc !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
+.quantity-button.disabled:hover {
+  transform: none !important;
+  background-color: #cccccc !important;
+}
+
+/* Updated Styles for Empty Cart Message */
+
+.empty-cart-message {
+  flex: 1; /* Takes up available space */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align items to the top */
+  text-align: center;
+  padding: 20px 0;
+  margin-left: -2rem; /* Remove left padding from .cart-sidebar */
+  margin-right: -2rem; /* Remove right padding from .cart-sidebar */
+}
+
+.empty-cart-message .empty-cart-title {
+  font-size: 1.8rem; /* Larger font for better visibility */
+  color: #333;
+  margin-bottom: 14px;
+}
+
+.empty-cart-message .empty-cart-subtitle {
+  font-size: 1.4rem; /* Larger font for better visibility */
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.category-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.start-shopping-button {
+  margin: 9px 0;
+  padding: 10px 30px;
+  font-size: 13px;
+  cursor: pointer;
+  background-color: #614907;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.start-shopping-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.start-shopping-button:active {
+  transform: translateY(0);
+}
+
+.empty-cart-image {
+  width: calc(100% + 4rem); /* Full width minus parent padding */
+  height: calc(100% - 200px); /* Adjust based on content height */
+  object-fit: cover; /* Ensures the image covers the area, cropping if necessary */
+  margin-top: 20px;
+}
+
+.delete-button {
+  background: white;
+  border: 1px solid black !important; /* Added border */
+  cursor: pointer;
+  padding: 4px !important;
+  border-radius: 2px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s, border-color 0.3s; /* Added border-color transition */
+}
+
+.delete-button:hover {
+  background-color: #f9f9f9; /* Optional: Slight background change on hover */
+  border-color: red !important; /* Change border color on hover */
+}
+
+.delete-button svg {
+  color: black;
+  width: 16px;
+  height: 16px;
+  transition: color 0.3s;
+}
+
+.delete-button:hover svg {
+  color: red; /* Trash icon turns red on hover */
+}
+
+.cart-discount-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #ff4444;
+  color: white;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.cart-price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.cart-original-price {
+  color: #ff0000 !important; /* Bright red */
+  text-decoration: line-through;
+  font-size: 0.9em;
+  margin: 0;
+}
+
+.cart-discounted-price {
+  color: #333;
+  font-weight: bold;
+  font-size: 1.1em;
+  margin: 0;
+}
